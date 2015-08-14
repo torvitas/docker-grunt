@@ -1,6 +1,8 @@
 FROM node:0.12
 MAINTAINER "Sascha Marcel Schmidt" <docker@saschaschmidt.net>
 
+RUN apt-get update && apt-get install ruby -y --no-install-recommends && rm -r /var/lib/apt/lists/*
+RUN gem install sass
 RUN useradd -m node
 WORKDIR /home/node/
 COPY vendor /home/node/vendor
