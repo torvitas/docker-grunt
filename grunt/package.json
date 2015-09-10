@@ -11,6 +11,7 @@
         "grunt-contrib-less": "^1.0.1",
         "grunt-bowercopy": "^1.2.3",
         "grunt-exec": "^0.4.6",
+        "grunt-composer": "^0.4.4",
         "bower": "^1.4.1"
     }
 }
