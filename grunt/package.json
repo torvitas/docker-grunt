@@ -13,6 +13,7 @@
         "grunt-bowercopy": "^1.2.3",
         "grunt-exec": "^0.4.6",
         "grunt-composer": "^0.4.4",
+        "grunt-contrib-uglify": "^0.11.1",
         "bower": "^1.4.1"
     }
 }
