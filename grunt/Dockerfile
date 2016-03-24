@@ -1,7 +1,17 @@
-FROM node:0.12
+FROM node:5.9
 MAINTAINER "Sascha Marcel Schmidt" <docker@saschaschmidt.net>
 
-RUN apt-get update && apt-get install ruby -y --no-install-recommends && rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get install ruby locales -y --no-install-recommends && rm -r /var/lib/apt/lists/*
+# Configure timezone and locale
+RUN echo "Europe/Berlin" > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen && \
+    echo 'LANG="en_GB.UTF-8"'>/etc/default/locale && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_GB.UTF-8
+ENV LANG="en_GB.UTF-8"
+ENV LANGUAGE="en_GB.UTF-8"
+ENV LC_ALL="en_GB.UTF-8"
 RUN gem install sass
 RUN useradd -m node
 WORKDIR /home/node/
