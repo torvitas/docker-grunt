@@ -21,7 +21,7 @@ COPY package.json /home/node/
 RUN chown node.node -R /home/node/
 USER node
 RUN echo "{}" >> bower.json
-RUN npm config set cache /tmp/bower
+COPY .bowerrc /home/node/.bowerrc
 RUN npm install
 
 COPY Gruntfile.js /home/node/
