@@ -1,7 +1,7 @@
 FROM node:5.9
 MAINTAINER "Sascha Marcel Schmidt" <docker@saschaschmidt.net>
 
-RUN apt-get update && apt-get install ruby locales -y --no-install-recommends && rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get install ruby ruby-dev locales libssl-dev -y --no-install-recommends && rm -r /var/lib/apt/lists/*
 # Configure timezone and locale
 RUN echo "Europe/Berlin" > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata && \
