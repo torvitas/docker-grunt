@@ -19,6 +19,6 @@
         "grunt-modernizr": "1.0.2",
         "grunt-inline-css": "0.1.4",
         "grunt-chmod": "1.1.1",
-        "bower": "^1.4.1"
+        "bower": "^1.8.4"
     }
 }
